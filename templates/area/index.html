@@ -6,4 +6,7 @@
 
 {% block main %}
 	<iframe src="https://giphy.com/embed/JOV4yauhTRF4Y" width="480" height="238" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p></p>
+	{% for area in data.areas %}
+		<p>{{area.name}}</p>
+	{% endfor %}
 {% endblock %}
