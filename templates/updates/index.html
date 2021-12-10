@@ -7,6 +7,6 @@
 {% block main %}
     ROUTE: 
     {% for update in data.result %}
-        <p>{{update.transport_type}},{{update.note}},{{update.updates_identifier}},{{update.identifier}}</p>
+        <p>{{update.transport_type}},{{update.note}},{{update.route_identifier}},{{update.point_identifier}}</p>
     {% endfor %}
 {% endblock %}
