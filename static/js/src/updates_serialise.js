@@ -10,6 +10,7 @@ function submitUpdateForm(e){
 
 	user = {
 		'route_id':document.getElementById('route_id').getAttribute('value'),
+		'point_id':document.getElementById('point_id').getAttribute('value'),
 		'transport_id':document.getElementById('transport_id').getAttribute('value'),
 		'city_id':document.getElementById('city_id').getAttribute('value'),
 		'country_id':document.getElementById('country_id').getAttribute('value'),

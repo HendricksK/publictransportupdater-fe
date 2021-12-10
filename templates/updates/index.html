@@ -5,8 +5,26 @@
 {% endblock %}
 
 {% block main %}
-    ROUTE: 
-    {% for update in data.result %}
-        <p>{{update.transport_type}},{{update.note}},{{update.route_identifier}},{{update.point_identifier}}</p>
-    {% endfor %}
+    <h3>ROUTE: {{data.route_identifier}}</h3>
+    <br>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">First</th>
+          <th scope="col">Last</th>
+          <th scope="col">Handle</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for update in data.result %}
+            <tr>
+              <th scope="row">{{update.route_identifier}}</th>
+              <td>{{update.transport_type}}</td>
+              <td>{{update.note}}</td>
+              <td>{{update.point_identifier}}</td>
+            </tr>
+        {% endfor %}
+      </tbody>
+    </table>
 {% endblock %}
