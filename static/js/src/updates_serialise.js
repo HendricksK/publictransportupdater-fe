@@ -26,12 +26,10 @@ function submitUpdateForm(e){
 	xhr.onload = function() {
 	    if (xhr.status != 200 ) {
 	    	// Need to display an error.
-	    	console.log(xhr.status)
 	    	response = JSON.stringify(xhr.responseText)
 
 	    } else {
 	    	response = JSON.parse(xhr.responseText)
-	    	console.log(response)
 	    	window.location = response.return_url
 	    }
 	}

@@ -1,0 +1,43 @@
+{% extends "layouts/base.html" %}
+
+{% block title %}
+    About
+{% endblock %}
+
+{% block main %}
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">About</h5>
+        <p class="card-text">An application to give users updates on their public transport, the idea is to use crowd sourcing to get those updates.</p>
+        <a href="/" class="btn btn-primary">Home</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Utilities</h5>
+        <p class="card-text">Bootstrap, Giphy, Flask</p>
+        <a href="https://getbootstrap.com/docs/4.1" class="btn btn-primary" target="_blank">Bootstrap</a>
+        <a href="https://giphy.com/" class="btn btn-primary" target="_blank">Giphy</a>
+        <a href="https://flask.palletsprojects.com/en/2.0.x/" class="btn btn-primary" target="_blank">Flask</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card mt-2">
+  <h5 class="card-header">Development updates</h5>
+  <div class="card-body">
+    <!-- <h5 class="card-title">Special title treatment</h5> -->
+    {% for update in data.result %}
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+    {% endfor %}
+    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+  </div>
+</div>
+
+{% endblock %}
