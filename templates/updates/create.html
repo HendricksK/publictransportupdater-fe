@@ -6,5 +6,9 @@
 
 {% block main %}
     <iframe src="https://giphy.com/embed/yvBI03Km1DyIHvL7v5" width="480" height="360" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p></p>
-    {% include "partials/updates/update_form.html" %}
+    {% if data.type == 'route'%}
+        {% include "partials/updates/update_routes_form.html" %}
+    {% else %}
+        {% include "partials/updates/update_form.html" %}
+    {% endif %}
 {% endblock %}

@@ -1,4 +1,4 @@
-<form action="/updates/update" method="POST" id="update_form">
+<form action="/updates/update/route" method="POST" id="update_form">
   <label for="transport_type">Transport Type:</label><br>
   <select name="transport_type" id="transport_type">
     <option value="bus">Bus</option>
@@ -7,12 +7,28 @@
     <option value="taxi">Taxi</option>
   </select>
   <br>
-  <label for="note">Update:</label>
+  {% if data.result != "NULL" %}
+    <label for="route_id">Route:</label><br>
+    <select name="route_id" id="route_id">
+      <!-- <option value="bus">Bus</option>
+      <option value="train">Train</option>
+      <option value="tram">Tram</option>
+      <option value="taxi">Taxi</option> -->
+      {% for route in data.result %}
+        <option value="{{route.id}}" 
+          data-city-id="{{route.city_id}}"
+          data-area-id="{{route.area_id}}"
+          data-country-id="{{route.country_id}}">
+            {{route.route_identifier}}
+        </option>
+      {% endfor %}
+    </select>
+    <br>
+  {% endif %}
+  <label for="note">Update:</label><br>
   <textarea id="note" name="note" rows="6" cols="50"></textarea><br>
   <br>
-  bellow will be hidden
-  <br>
-  point_id: <br>
+  <!-- point_id: <br>
   <input type="text" id="point_id" name="point_id" value="1"><br>
   route_id: <br>
   <input type="text" id="route_id" name="route_id" value="1"><br>
@@ -24,9 +40,9 @@
   <input type="text" id="country_id" name="country_id" value="1"><br>
   area_id: <br>
   <input type="text" id="area_id" name="area_id" value="1">
-  <br><br>
+  <br><br> -->
   <input type="submit" value="Submit">
 </form>
 
 <!-- This will move to js build -->
-<script type="text/javascript" src="/js/src/updates_serialise.js"></script>
+<script type="text/javascript" src="/js/src/updates_routes_serialise.js"></script>
