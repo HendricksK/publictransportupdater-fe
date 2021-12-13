@@ -10,10 +10,6 @@
   {% if data.result != "NULL" %}
     <label for="route_id">Route:</label><br>
     <select name="route_id" id="route_id">
-      <!-- <option value="bus">Bus</option>
-      <option value="train">Train</option>
-      <option value="tram">Tram</option>
-      <option value="taxi">Taxi</option> -->
       {% for route in data.result %}
         <option value="{{route.id}}" 
           data-city_id="{{route.city_id}}"
@@ -23,6 +19,14 @@
         </option>
       {% endfor %}
     </select>
+    <br>
+
+    <label><a id="add_new_route" href="#">Cannot see your route? Add a new route</a></label>
+    <br>
+    NB need to add area dropdown here
+    <br>
+    <label for="new_route_id">Route:</label><br>
+    <input type="text" id="new_route_id" name="new_route_id" value=""><br>
     <br>
   {% endif %}
   <label for="note">Update:</label><br>
