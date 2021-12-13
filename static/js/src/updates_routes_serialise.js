@@ -1,23 +1,23 @@
-const update_form = document.querySelector('#update_form')
+const update_form = document.querySelector('#update_routes_form')
 update_form.addEventListener('submit', submitUpdateForm)
 
 function submitUpdateForm(e){
 	e.preventDefault() // stop submit
 	// https://stackoverflow.com/questions/11338774/serialize-form-data-to-json
-	let data = $('#update_form')
 	let transport_options = document.getElementById('transport_type')
-	
+	let route_select = document.getElementById('route_id')
 
-	user = {
-		'route_id':document.getElementById('route_id').getAttribute('value'),
-		'point_id':document.getElementById('point_id').getAttribute('value'),
-		'transport_id':document.getElementById('transport_id').getAttribute('value'),
-		'city_id':document.getElementById('city_id').getAttribute('value'),
-		'country_id':document.getElementById('country_id').getAttribute('value'),
-		'area_id':document.getElementById('area_id').getAttribute('value'),
+	update = {
+		'route_id':route_select.options[route_select.selectedIndex].value,
+		'transport_id':transport_options.options[transport_options.selectedIndex].value,
+		'city_id':route_select.options[route_select.selectedIndex].dataset.city_id,
+		'country_id':route_select.options[route_select.selectedIndex].dataset.country_id,
+		'area_id':route_select.options[route_select.selectedIndex].dataset.area_id,
 		'note':document.getElementById('note').value,
-		'transport_type':transport_options.options[transport_options.selectedIndex].value
+		'transport_type':transport_options.options[transport_options.selectedIndex].dataset.transport_type
 	}
+
+	console.log(update)
 
 	var xhr = new XMLHttpRequest()
 
@@ -33,5 +33,5 @@ function submitUpdateForm(e){
 	    	window.location = response.return_url
 	    }
 	}
-	xhr.send(JSON.stringify(user))
+	xhr.send(JSON.stringify(update))
 }

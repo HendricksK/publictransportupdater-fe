@@ -1,10 +1,10 @@
-<form action="/updates/update/route" method="POST" id="update_form">
+<form action="/updates/update/route" method="POST" id="update_routes_form">
   <label for="transport_type">Transport Type:</label><br>
   <select name="transport_type" id="transport_type">
-    <option value="bus">Bus</option>
-    <option value="train">Train</option>
-    <option value="tram">Tram</option>
-    <option value="taxi">Taxi</option>
+    <option value="1" data-transport_type="bus">Bus</option>
+    <option value="2" data-transport_type="train">Train</option>
+    <option value="3" data-transport_type="tram">Tram</option>
+    <option value="4" data-transport_type="taxi">Taxi</option>
   </select>
   <br>
   {% if data.result != "NULL" %}
@@ -16,9 +16,9 @@
       <option value="taxi">Taxi</option> -->
       {% for route in data.result %}
         <option value="{{route.id}}" 
-          data-city-id="{{route.city_id}}"
-          data-area-id="{{route.area_id}}"
-          data-country-id="{{route.country_id}}">
+          data-city_id="{{route.city_id}}"
+          data-area_id="{{route.area_id}}"
+          data-country_id="{{route.country_id}}">
             {{route.route_identifier}}
         </option>
       {% endfor %}
@@ -26,7 +26,7 @@
     <br>
   {% endif %}
   <label for="note">Update:</label><br>
-  <textarea id="note" name="note" rows="6" cols="50"></textarea><br>
+  <textarea id="note" name="note" rows="6" cols="20"></textarea><br>
   <br>
   <!-- point_id: <br>
   <input type="text" id="point_id" name="point_id" value="1"><br>

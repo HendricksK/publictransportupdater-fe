@@ -4,11 +4,9 @@ update_form.addEventListener('submit', submitUpdateForm)
 function submitUpdateForm(e){
 	e.preventDefault() // stop submit
 	// https://stackoverflow.com/questions/11338774/serialize-form-data-to-json
-	let data = $('#update_form')
 	let transport_options = document.getElementById('transport_type')
-	
 
-	user = {
+	update = {
 		'route_id':document.getElementById('route_id').getAttribute('value'),
 		'point_id':document.getElementById('point_id').getAttribute('value'),
 		'transport_id':document.getElementById('transport_id').getAttribute('value'),
@@ -33,5 +31,5 @@ function submitUpdateForm(e){
 	    	window.location = response.return_url
 	    }
 	}
-	xhr.send(JSON.stringify(user))
+	xhr.send(JSON.stringify(update))
 }

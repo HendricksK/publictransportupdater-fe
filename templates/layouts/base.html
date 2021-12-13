@@ -26,28 +26,21 @@
             <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbar" data-toggle="collapse" type="button">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Add an update
-            </button>
-            <div class="updatesDropdown dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="/updates/update?type=route">Route</a>
-              <a class="dropdown-item" href="/updates/update?type=point">Station/Stop</a>  
-              <a class="dropdown-item" href="/updates/update?transport_type=bus">Bus</a>
-              <a class="dropdown-item" href="/updates/update?transport_type=tram">Tram</a>
-              <a class="dropdown-item" href="/updates/update?transport_type=train">Train</a>
-            </div>
+            
             <div class="collapse navbar-collapse" id="navbar">
 
                 <ul class="navbar-nav mr-auto mt-2">
-                    <li class="nav-item"><a class="nav-link" href="/updates/update">Add an update</a></li>
-                    <!-- <li class="nav-item"><a class="nav-link" href="/updates/update?transport_type=bus">Add a Bus Updates</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/updates/update?transport_type=bus">Add a Tram Updates</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/updates/update?transport_type=bus">Add a Train Updates</a></li> -->
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Make update
+                    </button>
+                    <div class="updatesDropdown dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" href="/updates/update?type=route">Route</a>
+                      <a class="dropdown-item" href="/updates/update?type=point">Station/Stop</a>  
+        <!--               <a class="dropdown-item" href="/updates/update?transport_type=bus">Bus</a>
+                      <a class="dropdown-item" href="/updates/update?transport_type=tram">Tram</a>
+                      <a class="dropdown-item" href="/updates/update?transport_type=train">Train</a> -->
+                    </div>
                     <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
-                    
-                    <!-- <li class="nav-item"><a class="nav-link" href="/sell">Train</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/history">Tram</a></li> -->
-
                 </ul>
                 <ul class="nav justify-content-end">
                   <label class="toggleSwitch large" onclick="">
@@ -61,16 +54,30 @@
             </div>
         </nav>
 
-        {% if get_flashed_messages() %}
+        {% if data.error %}
             <header>
                 <div class="alert alert-primary border text-center" role="alert">
-                    
+                    {{data.error}}
                 </div>
             </header>
         {% endif %}
-
-        <main class="container p-5">
-            {% block main %}{% endblock %}
+        
+        <main class="container-fluid p-5">
+            <div class="d-flex flex-row">
+                <div class="col-lg-2 d-none d-lg-block">
+                    <span class="ad-holder position-fixed ad-left">
+                        <iframe src="https://giphy.com/embed/xT0xeMgV8484jKozUA" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+                    </span>
+                </div>
+                <div class="col-lg-8 col-sm-5">
+                  {% block main %}{% endblock %}
+                </div>
+                <div class="col-lg-2 d-none d-lg-block">
+                    <span class="ad-holder position-fixed ad-right">
+                        <iframe src="https://giphy.com/embed/3o6fJ8nDZuHW123J9S" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+                    </span>
+                </div>
+            </div>
         </main>
 
         <footer class="small text-center text-muted">
