@@ -1,0 +1,52 @@
+<form action="/updates/update/route" method="POST" id="update_routes_form">
+  <label for="transport_type">Transport Type:</label><br>
+  <select name="transport_type" id="transport_type">
+    <option value="1" data-transport_type="bus">Bus</option>
+    <option value="2" data-transport_type="train">Train</option>
+    <option value="3" data-transport_type="tram">Tram</option>
+    <option value="4" data-transport_type="taxi">Taxi</option>
+  </select>
+  <br>
+  {% if data.result != "NULL" %}
+    <label for="route_id">Route:</label><br>
+    <select name="route_id" id="route_id">
+      {% for route in data.result %}
+        <option value="{{route.id}}" 
+          data-city_id="{{route.city_id}}"
+          data-area_id="{{route.area_id}}"
+          data-country_id="{{route.country_id}}">
+            {{route.route_identifier}}
+        </option>
+      {% endfor %}
+    </select>
+    <br>
+
+    <label><a id="add_new_route" href="#">Cannot see your station/stop? Add a new one.</a></label>
+    <br>
+    NB need to add area dropdown here
+    <br>
+    <label for="new_route_id">Route:</label><br>
+    <input type="text" id="new_route_id" name="new_route_id" value=""><br>
+    <br>
+  {% endif %}
+  <label for="note">Update:</label><br>
+  <textarea id="note" name="note" rows="6" cols="20"></textarea><br>
+  <br>
+  <!-- point_id: <br>
+  <input type="text" id="point_id" name="point_id" value="1"><br>
+  route_id: <br>
+  <input type="text" id="route_id" name="route_id" value="1"><br>
+  transport_id: <br>
+  <input type="text" id="transport_id" name="transport_id" value="1"><br>
+  city_id: <br>
+  <input type="text" id="city_id" name="city_id" value="1"><br>
+  country_id: <br>
+  <input type="text" id="country_id" name="country_id" value="1"><br>
+  area_id: <br>
+  <input type="text" id="area_id" name="area_id" value="1">
+  <br><br> -->
+  <input type="submit" value="Submit">
+</form>
+
+<!-- This will move to js build -->
+<script type="text/javascript" src="/js/src/updates_routes_serialise.js"></script>

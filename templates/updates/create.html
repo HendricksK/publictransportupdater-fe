@@ -7,6 +7,8 @@
 {% block main %}
     {% if data.type == 'route'%}
         {% include "partials/updates/update_routes_form.html" %}
+    {% elif data.type == 'point' %}
+        {% include "partials/updates/update_points_form.html" %}
     {% else %}
         {% include "partials/updates/update_form.html" %}
     {% endif %}
