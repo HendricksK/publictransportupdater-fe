@@ -7,10 +7,10 @@
     <option value="4" data-transport_type="taxi">Taxi</option>
   </select>
   <br>
-  {% if data.result != "NULL" %}
+  {% if data.result.result != "NULL" %}
     <label for="route_id">Route:</label><br>
     <select name="route_id" id="route_id">
-      {% for route in data.result %}
+      {% for route in data.result.result %}
         <option value="{{route.id}}" 
           data-city_id="{{route.city_id}}"
           data-area_id="{{route.area_id}}"

@@ -1,5 +1,6 @@
 @import "toggle.css";
 @import "update.css";
+@import "spinner.css";
 /*ALWAYS THE LAST TO LOAD*/
 @import "overrides.css";
 

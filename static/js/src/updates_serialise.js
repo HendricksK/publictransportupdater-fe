@@ -2,6 +2,9 @@ const update_form = document.querySelector('#update_form')
 update_form.addEventListener('submit', submitUpdateForm)
 
 function submitUpdateForm(e){
+
+	console.log(e)
+
 	e.preventDefault() // stop submit
 	// https://stackoverflow.com/questions/11338774/serialize-form-data-to-json
 	let transport_options = document.getElementById('transport_type')
