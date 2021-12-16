@@ -1,4 +1,5 @@
 <form action="/updates/update/route" method="POST" id="update_routes_form">
+  {% include "partials/spinner.html" %}
   <label for="transport_type">Transport Type:</label><br>
   <select name="transport_type" id="transport_type">
     <option value="1" data-transport_type="bus">Bus</option>
@@ -8,45 +9,26 @@
   </select>
   <br>
   {% if data.result.result != "NULL" %}
-    <label for="route_id">Route:</label><br>
-    <select name="route_id" id="route_id">
-      {% for route in data.result.result %}
-        <option value="{{route.id}}" 
-          data-city_id="{{route.city_id}}"
-          data-area_id="{{route.area_id}}"
-          data-country_id="{{route.country_id}}">
-            {{route.route_identifier}}
+    <label for="point_id">Station/Stop:</label><br>
+    <select name="point_id" id="point_id">
+      {% for point in data.result.result %}
+        <option value="{{point.id}}" 
+          data-route_id="{{point.route_id}}">
+            {{point.identifier}}
         </option>
       {% endfor %}
     </select>
     <br>
-
-    <label><a id="add_new_route" href="#">Cannot see your station/stop? Add a new one.</a></label>
     <br>
-    NB need to add area dropdown here
-    <br>
-    <label for="new_route_id">Route:</label><br>
-    <input type="text" id="new_route_id" name="new_route_id" value=""><br>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#gridSystemModal" data-toggle="tooltip" data-placement="top" title="Cannot find your station/stop? Click here to add a new one.">
+      Add a new station/stop
+    </button>
     <br>
   {% endif %}
   <label for="note">Update:</label><br>
   <textarea id="note" name="note" rows="6" cols="20"></textarea><br>
-  <br>
-  <!-- point_id: <br>
-  <input type="text" id="point_id" name="point_id" value="1"><br>
-  route_id: <br>
-  <input type="text" id="route_id" name="route_id" value="1"><br>
-  transport_id: <br>
-  <input type="text" id="transport_id" name="transport_id" value="1"><br>
-  city_id: <br>
-  <input type="text" id="city_id" name="city_id" value="1"><br>
-  country_id: <br>
-  <input type="text" id="country_id" name="country_id" value="1"><br>
-  area_id: <br>
-  <input type="text" id="area_id" name="area_id" value="1">
-  <br><br> -->
   <input type="submit" value="Submit">
 </form>
-
+{% include "partials/points/points_modal.html" %}
 <!-- This will move to js build -->
 <script type="text/javascript" src="/js/src/updates_routes_serialise.js"></script>

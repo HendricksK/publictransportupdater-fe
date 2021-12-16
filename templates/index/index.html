@@ -8,9 +8,7 @@
 	<div class="card mt-2">
 	  <h5 class="card-header">Areas</h5>
 	  <div class="card-body">
-	    <!-- <h5 class="card-title">Special title treatment</h5> -->
 	    {% for area in data.result.areas.result %}
-			<!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
     		<a href="#" class="btn btn-primary">{{area.name}}</a>	
 		{% endfor %}
 	  </div>
@@ -18,9 +16,7 @@
 	<div class="card mt-2">
 	  <h5 class="card-header">Stations/Stops</h5>
 	  <div class="card-body">
-	    <!-- <h5 class="card-title">Special title treatment</h5> -->
 	    {% for point in data.result.points.result %}
-			<!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
     		<a href="#" class="btn btn-primary">{{point.identifier}}</a>	
 		{% endfor %}
 	  </div>
@@ -28,17 +24,14 @@
 	<div class="card mt-2">
 	  <h5 class="card-header">Routes</h5>
 	  <div class="card-body">
-	    <!-- <h5 class="card-title">Special title treatment</h5> -->
 	    {% for route in data.result.routes.result %}
-			<!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
-    		<a href="{{data.urls.route}}{{route.id}}" class="btn btn-primary">{{route.route_identifier}}</a>	
+    		<a href="{{data.urls.route}}{{route.id}}" class="btn btn-primary">{{route.identifier}}</a>	
 		{% endfor %}
 	  </div>
 	</div>
 	<div class="card mt-2">
 	  <h5 class="card-header">Countries</h5>
 	  <div class="card-body">
-	    <!-- <h5 class="card-title">Special title treatment</h5> -->
 	    {% for country in data.result.countries.result %}
 			<p class="card-text">We will be adding countries all the time, the countries with the most recent updates will be displayed here.</p>
     		<a href="#" class="btn btn-primary">{{country.name}}</a>	
@@ -48,7 +41,6 @@
 	<div class="card mt-2">
 	  <h5 class="card-header">Cities</h5>
 	  <div class="card-body">
-	    <!-- <h5 class="card-title">Special title treatment</h5> -->
 	    {% for city in data.result.cities.result %}
 			<p class="card-text">We will be adding cities all the time, the cities with the most recent updates will be displayed here.</p>
     		<a href="#" class="btn btn-primary">{{city.name}}</a>	

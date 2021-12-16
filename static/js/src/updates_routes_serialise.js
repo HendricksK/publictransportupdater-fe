@@ -20,6 +20,8 @@ function submitUpdateForm(e){
 
 	var xhr = new XMLHttpRequest()
 
+	// disabled
+
 	// Normal flow
 	xhr.open('POST', '/updates/update/route')
 	xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
@@ -27,7 +29,7 @@ function submitUpdateForm(e){
 	    if (xhr.status != 200 ) {
 	    	// Need to display an error.
 	    	response = JSON.stringify(xhr.responseText)
-
+	    	window.location = response.return_url
 	    } else {
 	    	response = JSON.parse(xhr.responseText)
 	    	window.location = response.return_url

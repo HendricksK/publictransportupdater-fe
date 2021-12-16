@@ -1,4 +1,5 @@
 <form action="/updates/update" method="POST" id="update_form">
+  {% include "partials/spinner.html" %}
   <label for="transport_type">Transport Type:</label><br>
   <select name="transport_type" id="transport_type">
     <option value="bus">Bus</option>
