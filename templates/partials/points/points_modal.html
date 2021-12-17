@@ -10,22 +10,10 @@
         <div class="container-fluid">
           <div class="row">
             <div class="col-md-12">
-              <form action="#" method="POST" id="add_station_form">
-<!--                 <div class="form-group">
-                  <label for="new_station_area">Area:</label><br>
-                  <select name="new_station_area" id="new_station_area">
-                    {% for route in data.result.route %}
-                      <option value="{{area.id}}" 
-                        data-city_id="{{area.city_id}}"
-                        data-country_id="{{area.country_id}}">
-                          {{area.name}}
-                      </option>
-                    {% endfor %}
-                  </select>
-                </div> -->
+              <form action="#" method="POST" id="add_point_form">
                 <div class="form-group">
-                  <label for="new_station_route">Route:</label><br>
-                  <select name="new_station_route" id="new_station_route">
+                  <label for="new_point_route_id">Route:</label><br>
+                  <select name="new_point_route_id" id="new_point_route_id">
                     {% for route in data.result.routes.result %}
                       <option value="{{route.id}}">
                           {{route.identifier}}
@@ -34,8 +22,8 @@
                   </select>
                 </div>
                 <div class="form-group">
-                  <label for="new_route_route_identifier">Point/Station Identifier:</label>
-                  <input type="text" class="form-control" id="new_route_route_identifier">
+                  <label for="new_point_identifier">Point/Station Identifier:</label>
+                  <input type="text" class="form-control" id="new_point_identifier">
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -49,5 +37,5 @@
 </div>
 
 <!-- This will move to js build -->
-<script type="text/javascript" src="/js/src/add_routes_serialise.js"></script>
+<script type="text/javascript" src="/js/src/add_point_serialise.js"></script>
 
