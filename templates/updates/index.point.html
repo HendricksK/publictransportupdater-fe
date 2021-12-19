@@ -1,0 +1,37 @@
+{% extends "layouts/base.html" %}
+
+{% block title %}
+    Point updates
+{% endblock %}
+
+{% block main %}
+    {% if data.point_identifier != "NULL" %}
+        <h3>POINT: {{data.point_identifier}}</h3>
+    {% else %}
+        <h3>No updates for this stop/station</h3>
+        <a href="/" class="btn btn-primary">Home</a>
+    {% endif %}
+    <br>
+    {% if data.result != "NULL" %}
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Station/Stop</th>
+          <th scope="col">Transport Type</th>
+          <th scope="col">Update</th>
+          <th scope="col">Date time</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for update in data.result %}
+            <tr>
+              <th scope="row">{{update.point_identifier}}</th>
+              <td>{{update.transport_type}}</td>
+              <td>{{update.note}}</td>
+              <td>{{update.created_at}}</td>
+            </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% endif %}
+{% endblock %}

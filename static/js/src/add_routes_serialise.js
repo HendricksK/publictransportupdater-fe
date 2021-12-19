@@ -4,6 +4,9 @@ console.log(add_routes_form)
 add_routes_form.addEventListener('submit', submitUpdateForm)
 
 function submitUpdateForm(e){
+
+	document.getElementById('load-spinner').classList.remove('d-none')
+	
 	e.preventDefault() // stop submit
 	// https://stackoverflow.com/questions/11338774/serialize-form-data-to-json
 	

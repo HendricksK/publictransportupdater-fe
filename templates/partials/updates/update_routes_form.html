@@ -1,5 +1,7 @@
 <form action="/updates/update/route" method="POST" id="update_routes_form">
-  {% include "partials/spinner.html" %}
+  <div class="spinner-border d-none" id="load-spinner" role="status">
+    <span class="sr-only"></span>
+  </div>
   <label for="transport_type">Transport Type:</label><br>
   <select name="transport_type" id="transport_type">
     <option value="1" data-transport_type="bus">Bus</option>
@@ -22,14 +24,14 @@
     </select>
     <br>
     <br>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#gridSystemModal" data-toggle="tooltip" data-placement="top" title="Cannot find your route? Click here to add a new one.">
+    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#gridSystemModal" data-toggle="tooltip" data-placement="top" title="Cannot find your route? Click here to add a new one.">
       Add a new route
     </button>
     <br>
   {% endif %}
   <label for="note">Update:</label><br>
   <textarea id="note" name="note" rows="6" cols="20"></textarea><br>
-  <input type="submit" value="Submit">
+  <input class="btn btn-primary" type="submit" value="Submit">
 </form>
 <!-- 
 FORM NEEDS TO BE CALLED OUTSIDE OF FORM

@@ -3,7 +3,7 @@ update_form.addEventListener('submit', submitUpdateForm)
 
 function submitUpdateForm(e){
 
-	console.log(e)
+	document.getElementById('load-spinner').classList.remove('d-none')
 
 	e.preventDefault() // stop submit
 	// https://stackoverflow.com/questions/11338774/serialize-form-data-to-json
